@@ -62,31 +62,98 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 .checkbox_label input:checked + .checkbox_icon::before {
-  background: url(https://intranet.adef.co.kr/asset/images/ic_check.png) #03c75a
+  background: url(https://intranet.adef.co.kr/asset/images/ic_check.png) #4ae5b1
     no-repeat center;
   border: none;
 }
 
-/* 팝업 */
-.popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 20px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.popup .close-btn {
-  float: right;
-  cursor: pointer;
-}
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.button-container {
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden; /* 세로 스크롤바 숨김 */
+  padding: 6px;
+  border: 1px solid #fff;
+  height: 0; /* 초기에는 보이지 않도록 높이 0 설정 */
+  transition: height 0.3s; /* 높이 변화에 애니메이션 추가 */
+}
+
+.button-container.visible {
+  height: 50px; /* 버튼이 추가되면 높이 50px로 설정 */
+}
+
+.button-wrapper {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.button-wrapper button {
+  display: flex;
+  align-items: center;
+  background-color: #c8ffed;
+  color: black;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px 5px 10px; /*오른쪽에 공간 추가*/
+  position: relative;
+  border-radius: 5px;
+}
+
+.close-button {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  width: 0px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 1; /* 버튼 위로 표시되도록 설정 */
+}
+
+/* 스크롤바 스타일링 */
+.button-container::-webkit-scrollbar {
+  height: 8px; /* 스크롤바의 높이 (가로 스크롤) */
+}
+
+.button-container::-webkit-scrollbar-thumb {
+  background-color: #e3e3e3; /* 스크롤바의 색상 */
+  border-radius: 10px; /* 스크롤바의 둥글기 */
+}
+
+.button-container::-webkit-scrollbar-thumb:hover {
+  background-color: #cacaca; /* 스크롤바 호버 색상 */
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.login-background {
+  display: flex;
+  flex-direction: column;
+  background-color: #c8ffed;
+}
+.login-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }

@@ -1,25 +1,6 @@
-function openPopup() {
-  document.getElementById("scorePopup").style.display = "block";
-}
+const subjects = [];
+const scores = [];
 
-function closePopup() {
-  document.getElementById("scorePopup").style.display = "none";
-}
-
-function submitSub() {
-  const sub = document.getElementById("sub").value;
-
-  if (sub === "") {
-    alert("과목을 입력해주세요.");
-    return;
-  }
-
-  alert(`과목: ${sub}추가`);
-
-  // 이후 점수를 서버로 전송하거나 다른 작업을 수행할 수 있습니다.asd
-
-  closePopup();
-}
 function addSubject() {
   const newSubject = document.getElementById("newSubject").value.trim();
   if (newSubject === "") {
@@ -33,12 +14,39 @@ function addSubject() {
   }
 
   subjects.push(newSubject);
-  scores.push(0); // 새 과목의 초기 점수를 0으로 설정
-  const subjectSelect = document.getElementById("subject");
-  const option = document.createElement("option");
-  option.value = newSubject;
-  option.textContent = newSubject;
-  subjectSelect.appendChild(option);
+  scores.push(0);
 
-  $("#subjectModal").modal("hide");
+  // 버튼 래퍼 생성
+  let buttonWrapper = document.createElement("div");
+  buttonWrapper.className = "button-wrapper";
+
+  // 새로운 버튼 생성
+  let newButton = document.createElement("button");
+  newButton.textContent = newSubject;
+
+  // "x" 버튼 생성
+  let closeButton = document.createElement("button");
+  closeButton.innerHTML = "&times;";
+  closeButton.className = "close-button";
+  closeButton.addEventListener("click", function (event) {
+    event.stopPropagation(); // 이벤트 전파 방지
+    buttonWrapper.remove(); // 클릭된 버튼을 삭제
+    const buttonContainer = document.getElementById("buttonContainer");
+    if (buttonContainer.childElementCount === 0) {
+      buttonContainer.classList.remove("visible"); // 버튼이 모두 삭제되면 높이 0으로 설정
+    }
+  });
+
+  // 버튼 래퍼에 버튼과 "x" 버튼 추가
+  buttonWrapper.appendChild(newButton);
+  buttonWrapper.appendChild(closeButton);
+
+  // 버튼 컨테이너에 버튼 래퍼 추가
+  const buttonContainer = document.getElementById("buttonContainer");
+  buttonContainer.insertBefore(buttonWrapper, buttonContainer.firstChild);
+  buttonContainer.classList.add("visible"); // 버튼이 추가되면 높이 50px로 설정
+
+  // 입력 필드와 모달 초기화
+  document.getElementById("newSubject").value = ""; // 입력 필드 초기화
+  $("#subjectModal").modal("hide"); // 모달 닫기
 }
