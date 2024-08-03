@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <!-- Bootstrap (css편의성) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome(아이콘) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- nav start -->
+    <header class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="logo_font_nav eng">
+                    SWM: Study With Me!
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-2">
+                        <a href="start_study.html">
+                            <button type="button" class="btn btn-outline-dark">새로운 학습 시작</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn eng">Login</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- nav end -->
+    <!-- main start -->
+    <section class="content-header">
+        <!-- 학습 설정 -->
+        <div class="container">
+            <div class="row m-5">
+                <div class="col-sm-4">
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label">학습이름</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-sm-6">
+                    <div class="mx-2">
+                        추가된 과목1
+                    </div>
+                    <div class="mx-2">
+                        추가된 과목2
+                    </div>
+                    <div class="mx-2">
+                        추가된 과목3
+                    </div>
+                </div>
+                <div class="col-sm-2 text-right">
+                    <!-- modal popup 버튼 -->
+                    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#subjectModal">
+                        과목 추가+
+                    </button>
+                    <!-- modal -->
+                    <!-- 과목 추가 모달 -->
+                    <div class="modal fade" id="subjectModal" tabindex="-1" aria-labelledby="subjectModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="subjectModalLabel">과목 추가</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="subjectForm">
+                                        <div class="form-group">
+                                            <label for="newSubject">과목 이름</label>
+                                            <input type="text" class="form-control" id="newSubject"
+                                                placeholder="과목 이름을 입력하세요">
+                                        </div>
+                                        <button type="button" class="btn btn-primary" onclick="addSubject()">추가</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- model popup 끝 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <!-- 과목 설정 -->
+        <div class="container">
+            <div class="row m-5">
+                <!-- 왼쪽 -->
+                <div class="col-sm-6">
+                    <!-- 과목 -->
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label text-center">과목</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <!-- 요일 선택 -->
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label text-center">요일선택</label>
+                        <div class="row col-md-8 p-2 text-right">
+                            <label class="checkbox_label col-sm-4">
+                                <input type="checkbox">
+                                <span class="checkbox_icon"></span>
+                                <span class="checkbox_text">월요일</span>
+                            </label>
+                            <label class="checkbox_label col-sm-4">
+                                <input type="checkbox">
+                                <span class="checkbox_icon"></span>
+                                <span class="checkbox_text">화요일</span>
+                            </label>
+                            <label class="checkbox_label col-sm-4">
+                                <input type="checkbox">
+                                <span class="checkbox_icon"></span>
+                                <span class="checkbox_text">수요일</span>
+                            </label>
+                            <label class="checkbox_label col-sm-4">
+                                <input type="checkbox">
+                                <span class="checkbox_icon"></span>
+                                <span class="checkbox_text">목요일</span>
+                            </label>
+                            <label class="checkbox_label col-sm-4">
+                                <input type="checkbox">
+                                <span class="checkbox_icon"></span>
+                                <span class="checkbox_text">금요일</span>
+                            </label>
+                            <label class="checkbox_label col-sm-4">
+                                <input type="checkbox">
+                                <span class="checkbox_icon"></span>
+                                <span class="checkbox_text">토요일</span>
+                            </label>
+                            <label class="checkbox_label col-sm-4">
+                                <input type="checkbox">
+                                <span class="checkbox_icon"></span>
+                                <span class="checkbox_text">일요일</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- 오른쪽 -->
+                <div class="col-sm-6">
+                    <!-- 성취도 단위 -->
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label text-center">성취도 단위</label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                                <option value="" disabled selected>선택</option>
+                                <option value="chap">챕터</option>
+                                <option value="page">장수</option>
+                                <option value="exam">문제</option>
+                                <option value="time">시간</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- 반복횟수 -->
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label text-center">반복 횟수</label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                                <option value="" disabled selected>선택</option>
+                                <option value="w2">2주 반복</option>
+                                <option value="w3">3주 반복</option>
+                                <option value="w4">4주 반복</option>
+                                <option value="w5">5주 반복</option>
+                                <option value="w6">6주 반복</option>
+                                <option value="w7">7주 반복</option>
+                                <option value="w8">8주 반복</option>
+                                <option value="w9">9주 반복</option>
+                                <option value="w10">10주 반복</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content-footer">
+        <div class="container">
+            <div class="d-flex justify-content-end m-5">
+                <button type="submit" class="btn btn-outline-primary mx-2">저장</button>
+                <button type="reset" class="btn btn-outline-danger mx-2">취소</button>
+            </div>
+        </div>
+    </section>
+    <!-- main end -->
+
+    <script src="js/subject-popup.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+    <!-- Bootstrap (css편의성) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- font awesome(아이콘) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+</head>
+
+<body>
+    <!-- nav start -->
+    <header class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="logo_font_nav eng">
+                    SWM: Study With Me!
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-2">
+                        <a href="start_study.html">
+                            <button type="button" class="btn btn-outline-dark">새로운 학습 시작</button>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn eng">Login</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- nav end -->
+    <!-- main start -->
+    <section class="content-header">
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-sm-6">
+                    <h2>설정한 학습 이름</h2>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <!-- model popup 버튼 -->
+                    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#scoreModal">
+                        학습 진행률 입력
+                    </button>
+
+                    <!-- model -->
+                    <div class="modal fade" id="scoreModal" tabindex="-1" aria-labelledby="scoreModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="scoreModalLabel">점수 입력</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body text-left">
+                                    <form id="scoreForm">
+                                        <div class="form-group">
+                                            <label for="subject">과목 선택</label>
+                                            <select class="form-control" id="subject">
+                                                <option value="spring">Spring</option>
+                                                <option value="react">React</option>
+                                                <option value="javascript">JavaScript</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="score">점수 입력</label>
+                                            <input type="number" class="form-control" id="score" min="0" max="100">
+                                        </div>
+                                        <button type="button" class="btn btn-primary"
+                                            onclick="submitScore()">제출</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- model popup 끝 -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <!-- 그래프 부분 start -->
+                <div class="col-md-8">
+                    <h4 class="m-3">과목별 학습률</h4>
+                    <div class="bg-secondary p-0">
+                        <div class="parent text-right" id="graph-container-01">
+                        </div>
+                    </div>
+                </div>
+                <!-- 그래프 부분 end -->
+                <!-- 점수 표기부분 start -->
+                <div class="col-md-4">
+                    <div class="text-right">
+                        <h4 class="m-3">총점: 100 점</h4>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-icon p-4">
+                            😍
+                        </div>
+                        <div class="mt-5">
+                            <div class="text-weekscore">
+                                1주차 : 100 점
+                            </div>
+                            <div class="text-weekscore">
+                                2주차 : 100 점
+                            </div>
+                            <div class="text-weekscore">
+                                3주차 : 100 점
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 점수 표기부분 end -->
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- main end -->
+    <script src="js/testhighcharts.js"></script>
+    <script src="js/score-popup.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
